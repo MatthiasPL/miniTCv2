@@ -16,7 +16,14 @@ namespace miniTCv2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+            Model model = new Model();
+            View view = new View();
+            MiniTCView viewLeft = new MiniTCView();
+            MiniTCView ViewRight = new MiniTCView();
+            Presenter p = new Presenter(model, viewLeft, ViewRight);
+
+            Application.Run(view);
         }
     }
 }

@@ -46,14 +46,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="AbstractControlDescriptionProvider.cs" />
+    <Compile Include="IView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presenter.cs" />
+    <Compile Include="View.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="View.Designer.cs">
+      <DependentUpon>View.cs</DependentUpon>
     </Compile>
+    <Compile Include="MiniTCView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MiniTCView.Designer.cs">
+      <DependentUpon>MiniTCView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="View.resx">
+      <DependentUpon>View.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MiniTCView.resx">
+      <DependentUpon>MiniTCView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
