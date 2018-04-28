@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace miniTCMVP.Models
 {
-    class Model
+    public class MiniTCModel
     {
     }
 }

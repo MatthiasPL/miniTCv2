@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace miniTCMVP
 {
     public partial class MiniTC : Form
-    {
+    { 
         public MiniTC()
         {
             InitializeComponent();

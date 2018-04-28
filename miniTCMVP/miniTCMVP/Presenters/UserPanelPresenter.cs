@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace miniTCMVP.Presenters
 {
-    public class MiniTCPresenter
+    public class UserPanelPresenter
     {
     }
 }
