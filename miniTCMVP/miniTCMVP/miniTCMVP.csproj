@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DialogBoxNewFolder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogBoxNewFolder.Designer.cs">
+      <DependentUpon>DialogBoxNewFolder.cs</DependentUpon>
+    </Compile>
     <Compile Include="MiniTC.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +72,9 @@
     </Compile>
     <Compile Include="Views\IMiniTC.cs" />
     <Compile Include="Views\IUserPanel.cs" />
+    <EmbeddedResource Include="DialogBoxNewFolder.resx">
+      <DependentUpon>DialogBoxNewFolder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MiniTC.resx">
       <DependentUpon>MiniTC.cs</DependentUpon>
     </EmbeddedResource>

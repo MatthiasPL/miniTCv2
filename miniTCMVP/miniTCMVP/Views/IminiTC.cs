@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace miniTCMVP.Views
 {
-    interface IMiniTC
+    public interface IMiniTC
     {
 
     }

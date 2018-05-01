@@ -32,36 +32,15 @@ namespace miniTCMVP.Models
             List<string> dirs = new List<string> { };
             List<string> files = new List<string> { };
             List<string> dirsfiles = new List<string> { };
-            //string[] directories=new string[] { };
+
             try
             {
                 if (Directory.GetDirectories(path) != null)
                 {
                     dirs = Directory.GetDirectories(path).ToList();
-                    for (int i = 0; i < dirs.Count; i++)
-                    {
-                        int index = dirs[i].LastIndexOf("\\");
-                        if (index > 0)
-                            dirs[i] = dirs[i].Substring(index + 1, dirs[i].Length - index - 1);
-                        dirs[i] = "(D) " + dirs[i];
-                        if (dirs[i][4] == '$')
-                        {
-                            dirs.RemoveAt(i);
-                        }
-                    }
                     files = Directory.GetFiles(path).ToList();
-                    //string[] files = Directory.GetFiles(path).ToArray();
-                    for (int i = 0; i < files.Count; i++)
-                    {
-                        int index = files[i].LastIndexOf("\\");
-                        if (index > 0)
-                            files[i] = files[i].Substring(index + 1, files[i].Length - index - 1);
-                        if (files[i][0] == '$')
-                        {
-                            files.RemoveAt(i);
-                        }
-                    }
                 }
+                dirsfiles.Add("..");
                 dirsfiles.AddRange(dirs);
                 dirsfiles.AddRange(files);
                 return dirsfiles.ToArray();
@@ -74,6 +53,54 @@ namespace miniTCMVP.Models
                     MessageBox.Show(ex.Message);
             }
             return dirsfiles.ToArray();
+        }
+
+        private string FolderCutter(string path)
+        {
+            string exitFolder=path;
+            FileAttributes attr = File.GetAttributes(path);
+
+            if (attr.HasFlag(FileAttributes.Directory))
+            {
+                int index = exitFolder.LastIndexOf("\\");
+                if (index > 0)
+                    exitFolder = exitFolder.Substring(index + 1, exitFolder.Length - index - 1);
+                exitFolder = "(D) " + exitFolder;
+            }
+            else
+            {
+                int index = exitFolder.LastIndexOf("\\");
+                if (index > 0)
+                    exitFolder = exitFolder.Substring(index + 1, exitFolder.Length - index - 1);
+            }
+
+            return exitFolder;
+        }
+
+        public string FolderUp(string path)
+        {
+            string exitPath = path;
+            int index = path.LastIndexOf("\\");
+            try
+            {
+                exitPath = exitPath.Remove(index, exitPath.Length - index);
+            }
+            catch(Exception ex)
+            {
+                
+            }
+            return exitPath;
+        }
+        public void CreateFolder(string path, string name)
+        {
+            if (name != "")
+            {
+                Directory.CreateDirectory(path + "\\" + name);
+            }
+        }
+        public void RemoveFolder(string path)
+        {
+            Directory.Delete(path, true);
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using miniTCMVP.Presenters;
+using miniTCMVP.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -19,6 +21,7 @@ namespace miniTCMVP
             //https://stackoverflow.com/questions/13151102/user-controls-in-winform-application-with-mvp-pattern
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
             Application.Run(new MiniTC());
         }
     }

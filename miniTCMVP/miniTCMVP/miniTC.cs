@@ -1,4 +1,6 @@
-﻿using System;
+﻿using miniTCMVP.Models;
+using miniTCMVP.Presenters;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +17,10 @@ namespace miniTCMVP
         public MiniTC()
         {
             InitializeComponent();
+
+            UserPanelModel model = new UserPanelModel();
+            UserPanelPresenter presenterLeft = new UserPanelPresenter(model, userPanelRight);
+            UserPanelPresenter presenterRight = new UserPanelPresenter(model, userPanelLeft);
         }
     }
 }
