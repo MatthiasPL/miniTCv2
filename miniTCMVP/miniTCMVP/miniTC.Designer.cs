@@ -127,6 +127,7 @@
             this.buttonMove.TabStop = false;
             this.buttonMove.Text = "Move";
             this.buttonMove.UseVisualStyleBackColor = true;
+            this.buttonMove.Click += new System.EventHandler(this.buttonMove_Click);
             // 
             // buttonCopy
             // 
@@ -139,6 +140,7 @@
             this.buttonCopy.TabStop = false;
             this.buttonCopy.Text = "Copy";
             this.buttonCopy.UseVisualStyleBackColor = true;
+            this.buttonCopy.Click += new System.EventHandler(this.buttonCopy_Click);
             // 
             // MiniTC
             // 

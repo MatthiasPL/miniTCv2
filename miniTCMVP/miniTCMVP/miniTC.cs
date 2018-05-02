@@ -21,7 +21,11 @@ namespace miniTCMVP
 
         private string focus;
         private string foldername;
+        private string copySource;
+        private string copyOutput;
+        private string copyFileName;
 
+        #region interface
         public string FolderName
         {
             get
@@ -74,6 +78,46 @@ namespace miniTCMVP
             }
         }
 
+        public string CopyOutputName
+        {
+            get
+            {
+                return copyFileName;
+            }
+
+            set
+            {
+                copyFileName = value;
+            }
+        }
+
+        public string CopySource
+        {
+            get
+            {
+                return copySource;
+            }
+
+            set
+            {
+                copySource = value;
+            }
+        }
+
+        public string CopyOutput
+        {
+            get
+            {
+                return copyOutput;
+            }
+
+            set
+            {
+                copyOutput = value;
+            }
+        }
+        #endregion
+
         public MiniTC()
         {
             InitializeComponent();
@@ -92,11 +136,8 @@ namespace miniTCMVP
         {
             DialogBoxNewFolder testDialog = new DialogBoxNewFolder();
 
-            // Show testDialog as a modal dialog and determine if DialogResult = OK.
             if (testDialog.ShowDialog(this) == DialogResult.OK)
             {
-                // Read the contents of testDialog's TextBox.
-                // Console.WriteLine(testDialog.textBox.Text);
                 FolderName = testDialog.textBox.Text;
             }
             else
@@ -108,24 +149,36 @@ namespace miniTCMVP
         public void ShowDialogCopy()
         {
             DialogBoxCopy testDialog = new DialogBoxCopy();
+            testDialog.textBoxInput.Text = CopySource;
+            testDialog.textBoxOutput.Text = CopyOutput;
+            testDialog.textBoxOutputName.Text = CopyOutputName;
 
-            testDialog.tex
+            if (testDialog.ShowDialog(this) == DialogResult.OK)
+            {
+                CopyOutputName = testDialog.textBoxOutputName.Text;
+            }
+            else
+            {
+                CopyOutputName = "";
+            }
+
+            //testDialog.textBoxInput.Width
             // Show testDialog as a modal dialog and determine if DialogResult = OK.
             //if (testDialog.ShowDialog(this) == DialogResult.OK)
             //{
-                // Read the contents of testDialog's TextBox.
-                // Console.WriteLine(testDialog.textBox.Text);
-                //FolderName = testDialog.textBox.Text;
+            // Read the contents of testDialog's TextBox.
+            // Console.WriteLine(testDialog.textBox.Text);
+            //FolderName = testDialog.textBox.Text;
             //}
             //else
             //{
-                //FolderName = "";
+            //FolderName = "";
             //}
-            //testDialog.Dispose();
+            testDialog.Dispose();
         }
 
 
-        public void Refresh()
+        override public void Refresh()
         {
             presenterLeft.Refresh();
             presenterRight.Refresh();
@@ -154,6 +207,22 @@ namespace miniTCMVP
             if (VEvent_OnRemove != null)
             {
                 VEvent_OnRemove(sender, e);
+            }
+        }
+
+        private void buttonCopy_Click(object sender, EventArgs e)
+        {
+            if (VEvent_OnCopy != null)
+            {
+                VEvent_OnCopy(sender, e);
+            }
+        }
+
+        private void buttonMove_Click(object sender, EventArgs e)
+        {
+            if (VEvent_OnMove != null)
+            {
+                VEvent_OnMove(sender, e);
             }
         }
     }

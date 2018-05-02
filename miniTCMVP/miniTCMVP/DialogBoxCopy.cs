@@ -16,5 +16,19 @@ namespace miniTCMVP
         {
             InitializeComponent();
         }
+
+        public string outputName;
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            outputName = textBoxOutputName.Text;
+            this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            outputName = "";
+            this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+        }
     }
 }

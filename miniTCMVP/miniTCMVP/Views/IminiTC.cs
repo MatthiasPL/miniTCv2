@@ -16,6 +16,7 @@ namespace miniTCMVP.Views
         event Action<object, EventArgs> VEvent_OnMove;
 
         void ShowDialogBoxNewFolder();
+        void ShowDialogCopy();
         void Refresh();
 
         string FolderName { get; set; }
@@ -24,5 +25,8 @@ namespace miniTCMVP.Views
         string RightPath { get; }
         string LeftCurrentFolder { get; }
         string RightCurrentFolder { get; }
+        string CopySource { get; set; }
+        string CopyOutput { get; set; }
+        string CopyOutputName { get; set; }
     }
 }

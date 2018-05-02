@@ -70,7 +70,9 @@ namespace miniTCMVP.Presenters
             if (view.CurrentFolder == "..")
             {
                 view.Path = model.FolderUp(view.Path);
-                view.Folders = model.LoadFolders(view.CurrentDrive);
+                if (view.Path.Length == 2)
+                    view.Path = view.CurrentDrive;
+                view.Folders = model.LoadFolders(view.Path);
             }
             else
             {
