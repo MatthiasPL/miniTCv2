@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DialogBoxCopy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogBoxCopy.Designer.cs">
+      <DependentUpon>DialogBoxCopy.cs</DependentUpon>
+    </Compile>
     <Compile Include="DialogBoxNewFolder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +78,9 @@
     </Compile>
     <Compile Include="Views\IMiniTC.cs" />
     <Compile Include="Views\IUserPanel.cs" />
+    <EmbeddedResource Include="DialogBoxCopy.resx">
+      <DependentUpon>DialogBoxCopy.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DialogBoxNewFolder.resx">
       <DependentUpon>DialogBoxNewFolder.cs</DependentUpon>
     </EmbeddedResource>

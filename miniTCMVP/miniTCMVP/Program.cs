@@ -22,7 +22,11 @@ namespace miniTCMVP
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new MiniTC());
+            MiniTC view = new MiniTC();
+            MiniTCModel model = new MiniTCModel();
+            MiniTCPresenter presenter = new MiniTCPresenter(model, view);
+
+            Application.Run(view);
         }
     }
 }

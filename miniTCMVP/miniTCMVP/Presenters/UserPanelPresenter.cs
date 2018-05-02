@@ -28,6 +28,20 @@ namespace miniTCMVP.Presenters
             view.VEvent_OnRemove += View_VEventOnRemove;
         }
 
+        public string GetPath()
+        {
+            return view.Path;
+        }
+
+        public string GetCurrentFolder()
+        {
+            return view.CurrentFolder;
+        }
+        public void Refresh()
+        {
+            view.Folders = model.LoadFolders(view.Path);
+        }
+
         private void View_VEventOnLoad(object arg1, EventArgs arg2)
         {
             view.Drives=model.LoadDrives();

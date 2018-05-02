@@ -33,8 +33,6 @@
             this.listBoxFolders = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.buttonNewFolder = new System.Windows.Forms.Button();
-            this.buttonRemove = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBoxPath
@@ -66,7 +64,7 @@
             this.listBoxFolders.FormattingEnabled = true;
             this.listBoxFolders.Location = new System.Drawing.Point(3, 56);
             this.listBoxFolders.Name = "listBoxFolders";
-            this.listBoxFolders.Size = new System.Drawing.Size(196, 173);
+            this.listBoxFolders.Size = new System.Drawing.Size(196, 199);
             this.listBoxFolders.TabIndex = 2;
             this.listBoxFolders.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxFolders_MouseDoubleClick);
             // 
@@ -88,34 +86,10 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Drive:";
             // 
-            // buttonNewFolder
-            // 
-            this.buttonNewFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonNewFolder.Location = new System.Drawing.Point(3, 234);
-            this.buttonNewFolder.Name = "buttonNewFolder";
-            this.buttonNewFolder.Size = new System.Drawing.Size(96, 23);
-            this.buttonNewFolder.TabIndex = 5;
-            this.buttonNewFolder.Text = "New Folder";
-            this.buttonNewFolder.UseVisualStyleBackColor = true;
-            this.buttonNewFolder.Click += new System.EventHandler(this.buttonNewFolder_Click);
-            // 
-            // buttonRemove
-            // 
-            this.buttonRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonRemove.Location = new System.Drawing.Point(105, 234);
-            this.buttonRemove.Name = "buttonRemove";
-            this.buttonRemove.Size = new System.Drawing.Size(94, 23);
-            this.buttonRemove.TabIndex = 6;
-            this.buttonRemove.Text = "Remove";
-            this.buttonRemove.UseVisualStyleBackColor = true;
-            this.buttonRemove.Click += new System.EventHandler(this.buttonRemove_Click);
-            // 
             // UserPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.buttonRemove);
-            this.Controls.Add(this.buttonNewFolder);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listBoxFolders);
@@ -136,7 +110,5 @@
         private System.Windows.Forms.ListBox listBoxFolders;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button buttonNewFolder;
-        private System.Windows.Forms.Button buttonRemove;
     }
 }

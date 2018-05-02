@@ -17,6 +17,7 @@ namespace miniTCMVP.Views
         event Action<object, EventArgs> VEvent_OnNewFolder;
         event Action<object, EventArgs> VEvent_OnRemove;
         void ShowDialogBox();
+        void Refresh();
 
         string Path { get; set; }
         string[] Drives { set; }
