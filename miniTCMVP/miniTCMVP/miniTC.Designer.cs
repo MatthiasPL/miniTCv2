@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.userPanelLeft = new miniTCMVP.UserPanel();
-            this.userPanelRight = new miniTCMVP.UserPanel();
             this.buttonNewFolder = new System.Windows.Forms.Button();
             this.buttonRemove = new System.Windows.Forms.Button();
             this.buttonMove = new System.Windows.Forms.Button();
             this.buttonCopy = new System.Windows.Forms.Button();
+            this.userPanelLeft = new miniTCMVP.UserPanel();
+            this.userPanelRight = new miniTCMVP.UserPanel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -59,36 +59,6 @@
             this.splitContainer1.Size = new System.Drawing.Size(558, 306);
             this.splitContainer1.SplitterDistance = 279;
             this.splitContainer1.TabIndex = 2;
-            // 
-            // userPanelLeft
-            // 
-            this.userPanelLeft.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.userPanelLeft.FolderName = null;
-            this.userPanelLeft.FoldersToPrint = null;
-            this.userPanelLeft.IDCurrentDrive = -1;
-            this.userPanelLeft.Location = new System.Drawing.Point(3, 6);
-            this.userPanelLeft.Name = "userPanelLeft";
-            this.userPanelLeft.Path = "";
-            this.userPanelLeft.Size = new System.Drawing.Size(279, 293);
-            this.userPanelLeft.TabIndex = 0;
-            this.userPanelLeft.Enter += new System.EventHandler(this.userPanelLeft_Enter);
-            // 
-            // userPanelRight
-            // 
-            this.userPanelRight.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.userPanelRight.FolderName = null;
-            this.userPanelRight.FoldersToPrint = null;
-            this.userPanelRight.IDCurrentDrive = -1;
-            this.userPanelRight.Location = new System.Drawing.Point(3, 3);
-            this.userPanelRight.Name = "userPanelRight";
-            this.userPanelRight.Path = "";
-            this.userPanelRight.Size = new System.Drawing.Size(272, 296);
-            this.userPanelRight.TabIndex = 1;
-            this.userPanelRight.Enter += new System.EventHandler(this.userPanelRight_Enter);
             // 
             // buttonNewFolder
             // 
@@ -142,6 +112,36 @@
             this.buttonCopy.UseVisualStyleBackColor = true;
             this.buttonCopy.Click += new System.EventHandler(this.buttonCopy_Click);
             // 
+            // userPanelLeft
+            // 
+            this.userPanelLeft.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.userPanelLeft.FolderName = null;
+            this.userPanelLeft.FoldersToPrint = null;
+            this.userPanelLeft.IDCurrentDrive = -1;
+            this.userPanelLeft.Location = new System.Drawing.Point(3, 6);
+            this.userPanelLeft.Name = "userPanelLeft";
+            this.userPanelLeft.Path = "";
+            this.userPanelLeft.Size = new System.Drawing.Size(279, 293);
+            this.userPanelLeft.TabIndex = 0;
+            this.userPanelLeft.Enter += new System.EventHandler(this.userPanelLeft_Enter);
+            // 
+            // userPanelRight
+            // 
+            this.userPanelRight.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.userPanelRight.FolderName = null;
+            this.userPanelRight.FoldersToPrint = null;
+            this.userPanelRight.IDCurrentDrive = -1;
+            this.userPanelRight.Location = new System.Drawing.Point(3, 3);
+            this.userPanelRight.Name = "userPanelRight";
+            this.userPanelRight.Path = "";
+            this.userPanelRight.Size = new System.Drawing.Size(272, 296);
+            this.userPanelRight.TabIndex = 1;
+            this.userPanelRight.Enter += new System.EventHandler(this.userPanelRight_Enter);
+            // 
             // MiniTC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -155,6 +155,7 @@
             this.MinimumSize = new System.Drawing.Size(300, 200);
             this.Name = "MiniTC";
             this.Text = "Form1";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
