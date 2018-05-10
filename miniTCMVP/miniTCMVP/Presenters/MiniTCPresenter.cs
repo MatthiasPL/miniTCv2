@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace miniTCMVP.Presenters
 {
@@ -48,13 +49,11 @@ namespace miniTCMVP.Presenters
                 {
                     Thread t = new Thread(() => model.Copy(view.CopySource, view.CopyOutput));
                     t.Start();
-                    //model.Copy(view.CopySource, view.CopyOutput);
                 }
                 else if (File.Exists(view.CopySource))
                 {
                     Thread t = new Thread(() => model.Copy(view.CopySource, view.CopyOutput, view.CopyOutputName));
                     t.Start();
-                    //model.Copy(view.CopySource, view.CopyOutput, view.CopyOutputName);
                 }
             }
             view.Refresh();
@@ -93,21 +92,29 @@ namespace miniTCMVP.Presenters
         }
         private void View_VEventOnRemove(object arg1, EventArgs arg2)
         {
-            if (view.NameFocus == "left")
+            DialogResult dialogResult = MessageBox.Show("Do you want to remove this file/folder?", "Remove", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
             {
-                if (Directory.Exists(view.LeftCurrentFolder))
-                    model.RemoveFolder(view.LeftCurrentFolder);
-                else
-                    model.RemoveFile(view.LeftCurrentFolder);
+                if (view.NameFocus == "left")
+                {
+                    if (Directory.Exists(view.LeftCurrentFolder))
+                        model.RemoveFolder(view.LeftCurrentFolder);
+                    else
+                        model.RemoveFile(view.LeftCurrentFolder);
+                }
+                else if (view.NameFocus == "right")
+                {
+                    if (Directory.Exists(view.RightCurrentFolder))
+                        model.RemoveFolder(view.RightCurrentFolder);
+                    else
+                        model.RemoveFile(view.RightCurrentFolder);
+                }
+                view.Refresh();
             }
-            else if (view.NameFocus == "right")
+            else if (dialogResult == DialogResult.No)
             {
-                if (Directory.Exists(view.RightCurrentFolder))
-                    model.RemoveFolder(view.RightCurrentFolder);
-                else
-                    model.RemoveFile(view.RightCurrentFolder);
+
             }
-            view.Refresh();
         }
     }
 }
