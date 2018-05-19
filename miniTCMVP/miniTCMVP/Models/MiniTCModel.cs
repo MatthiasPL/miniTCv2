@@ -11,74 +11,116 @@ namespace miniTCMVP.Models
     {
         public void CreateFolder(string path, string name)
         {
-            if (name != "")
+            try
             {
-                Directory.CreateDirectory(path + "\\" + name);
+                if (name != "")
+                {
+                    Directory.CreateDirectory(path + "\\" + name);
+                }
+            }
+            catch
+            {
+                Console.WriteLine("Wystąpił nieoczekiwany błąd.");
             }
         }
         public void RemoveFolder(string path)
         {
-            if (path != "")
-                Directory.Delete(path, true);
+            try
+            {
+                if (path != "")
+                    Directory.Delete(path, true);
+            }
+            catch
+            {
+                Console.WriteLine("Wystąpił nieoczekiwany błąd.");
+            }
         }
         public void RemoveFile(string path)
         {
-            if (path != "")
-                File.Delete(path);
+            try
+            {
+                if (path != "")
+                    File.Delete(path);
+            }
+            catch
+            {
+                Console.WriteLine("Wystąpił nieoczekiwany błąd.");
+            }
         }
         //Method used to copy files
         public void Copy(string source, string output, string nameOutput)
         {
-            if(source!="" && output != "" && nameOutput!="")
+            try
             {
-                File.Copy(source, output + "\\" + nameOutput, true);
+                if (source != "" && output != "" && nameOutput != "")
+                {
+                    File.Copy(source, output + "\\" + nameOutput, true);
+                }
+            }
+            catch
+            {
+                Console.WriteLine("Wystąpił nieoczekiwany błąd.");
             }
         }
         //Method used to copy directories
         public void Copy(string source, string output)
         {
-            DirectoryInfo dir = new DirectoryInfo(source);
-
-            if (!dir.Exists)
+            try
             {
-                throw new DirectoryNotFoundException(
-                    "Source directory does not exist or could not be found: "
-                    + source);
+                DirectoryInfo dir = new DirectoryInfo(source);
+
+                if (!dir.Exists)
+                {
+                    throw new DirectoryNotFoundException(
+                        "Source directory does not exist or could not be found: "
+                        + source);
+                }
+
+                DirectoryInfo[] dirs = dir.GetDirectories();
+                if (!Directory.Exists(output))
+                {
+                    Directory.CreateDirectory(output);
+                }
+
+                FileInfo[] files = dir.GetFiles();
+                foreach (FileInfo file in files)
+                {
+                    string temppath = Path.Combine(output, file.Name);
+                    file.CopyTo(temppath, true);
+                }
+
+                foreach (DirectoryInfo subdir in dirs)
+                {
+                    string temppath = Path.Combine(output, subdir.Name);
+                    Copy(subdir.FullName, temppath);
+                }
             }
-
-            DirectoryInfo[] dirs = dir.GetDirectories();
-            if (!Directory.Exists(output))
+            catch
             {
-                Directory.CreateDirectory(output);
-            }
-
-            FileInfo[] files = dir.GetFiles();
-            foreach (FileInfo file in files)
-            {
-                string temppath = Path.Combine(output, file.Name);
-                file.CopyTo(temppath, true);
-            }
-
-            foreach (DirectoryInfo subdir in dirs)
-            {
-                string temppath = Path.Combine(output, subdir.Name);
-                Copy(subdir.FullName, temppath);
+                Console.WriteLine("Wystąpił nieoczekiwany błąd.");
             }
         }
         public void Move(string source, string output)
         {
-            if(source!="" && output != "")
+            try
             {
-                if (Directory.Exists(source))
+                if (source != "" && output != "")
                 {
-                    Copy(source, output);
-                    RemoveFolder(source);
+                    if (Directory.Exists(source))
+                    {
+                        Copy(source, output);
+                        RemoveFolder(source);
+                    }
+                    else
+                    {
+                        Copy(source, output, FolderCutter(source));
+                        RemoveFile(source);
+                    }
                 }
-                else
-                {
-                    Copy(source, output, FolderCutter(source));
-                    RemoveFile(source);
-                }
+            }
+            catch
+            {
+                Console.WriteLine("Wystąpił nieoczekiwany błąd.");
             }
         }
         public string FolderCutter(string path)
